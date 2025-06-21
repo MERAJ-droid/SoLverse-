@@ -28,7 +28,7 @@ contract ReputationOracle is Ownable(msg.sender) {
     event VerifierSlashed(string contributionId, address verifier, uint256 amount);
 
     constructor() {
-        daoTreasury = 0xBDdbB7b866e2549066E0BFD27c409900156d1470;
+        daoTreasury = 0xfF01A2491F19A0342f6B6b490D9ffDE0320306A1;
     }
 
     /**
