@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Audiowide:wght@400&family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+/* Custom styling for Civic Auth components */
+.civic-auth-wrapper button,
+[data-civic-auth] button {
+  background: rgba(30,41,59,0.6) !important;
+  backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(56, 189, 248, 0.3) !important;
+  color: #f1f5f9 !important;
+  font-weight: 500 !important;
+  padding: 0.5rem 1rem !important;
+  border-radius: 1.5rem !important;
+  transition: all 0.3s ease !important;
+}
+
+.civic-auth-wrapper button:hover,
+[data-civic-auth] button:hover {
+  border-color: rgba(56, 189, 248, 0.6) !important;
+  background: rgba(56, 189, 248, 0.05) !important;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37) !important;
+}
+
+/* Style the Civic user button when logged in */
+[data-civic-auth] [data-testid="user-button"] {
+  background: rgba(56, 189, 248, 0.2) !important;
+  border-color: rgba(56, 189, 248, 0.5) !important;
+  color: #38BDF8 !important;
+}
+
+[data-civic-auth] [data-testid="user-button"]:hover {
+  background: rgba(56, 189, 248, 0.3) !important;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(56, 189, 248, 0.3);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(56, 189, 248, 0.5);
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Font variables */
+:root {
+  --font-audiowide: 'Audiowide', sans-serif;
+  --font-montserrat: 'Montserrat', sans-serif;
+}
+
+/* Apply fonts */
+body {
+  font-family: var(--font-montserrat);
+}
+
+.font-heading {
+  font-family: var(--font-audiowide);
+}
