@@ -2,6 +2,10 @@
 import { motion } from 'framer-motion'
 import { Sparkles, Shield, Trophy, Users, ArrowRight, Zap } from 'lucide-react'
 import { FeatureTextFlip } from '@/components/ui/container-text-flip'
+import { useRouter } from 'next/navigation'
+import { useAccount } from 'wagmi'
+
+
 
 interface HeroSectionProps {
   onGetStarted: () => void
@@ -9,6 +13,8 @@ interface HeroSectionProps {
 }
 
 export function HeroSection({ onGetStarted, isAuthenticated }: HeroSectionProps) {
+  const router = useRouter();
+  const { address } = useAccount();
   const features = [
     { icon: Shield, text: 'Soulbound Tokens' },
     { icon: Users, text: 'Peer Verification' },
@@ -118,8 +124,8 @@ export function HeroSection({ onGetStarted, isAuthenticated }: HeroSectionProps)
         >
           {isAuthenticated ? (
             <button
-              onClick={onGetStarted}
-              className="group relative bg-primary hover:bg-primary-dark text-black font-semibold px-8 py-4 rounded-glass transition-all duration-300 hover:shadow-glow hover:scale-105 flex items-center gap-2"
+              onClick={() => address && router.push(`/profile/${address}`)}
+                className="group relative bg-primary hover:bg-primary-dark text-black font-semibold px-8 py-4 rounded-glass transition-all duration-300 hover:shadow-glow hover:scale-105 flex items-center gap-2"
             >
               <span>Enter Dashboard</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
